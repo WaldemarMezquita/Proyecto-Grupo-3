@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+    <line>
+      <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
+    </line>
+  </reporter-output>
+  <suite started-at="2022-07-21T11:54:16 CST" name="Suite" finished-at="2022-07-21T11:54:42 CST" duration-ms="25994">
+    <groups>
+    </groups>
+    <test started-at="2022-07-21T11:54:16 CST" name="TestRefactor" finished-at="2022-07-21T11:54:42 CST" duration-ms="25994">
+      <class name="com.project.tests.HomeTest">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T11:54:16 CST" name="beforeClass" finished-at="2022-07-21T11:54:29 CST" duration-ms="12577" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method signature="testHomepage()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T11:54:29 CST" name="testHomepage" finished-at="2022-07-21T11:54:42 CST" duration-ms="13382" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- testHomepage -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T11:54:42 CST" name="afterClass" finished-at="2022-07-21T11:54:42 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.project.tests.HomeTest -->
+    </test> <!-- TestRefactor -->
+  </suite> <!-- Suite -->
+</testng-results>
