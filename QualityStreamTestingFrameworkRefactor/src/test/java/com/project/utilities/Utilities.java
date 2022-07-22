@@ -1,12 +1,16 @@
 package com.project.utilities;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.List;
 import java.util.function.Function;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,7 +43,7 @@ public class Utilities {
 			driver = new ChromeDriver();
 
 			return driver;
-			
+
 		} else if (browserType.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "./src/test/resources/Drivers/firefoxDriver/geckodriver.exe");
 			driver = new FirefoxDriver();
@@ -51,7 +55,7 @@ public class Utilities {
 			System.setProperty("webdriver.edge.driver", "./src/test/resources/Drivers/edgeDriver/msedgedriver.exe");
 
 			return driver;
-			
+
 		} else {
 
 			System.out.println("El navegador " + browserType
@@ -126,19 +130,37 @@ public class Utilities {
 		jse.executeScript("window.scroll(" + x + "," + y + ")");
 
 	}
-	
+
 	public void fWait(final By locator, int timeOut, int pollingEvery) {
-		
-		Wait<WebDriver> fwait =  new FluentWait<WebDriver>(driver)
-				.withTimeout(Duration.ofSeconds(timeOut))
-				.pollingEvery(Duration.ofSeconds(pollingEvery))
-				.ignoring(NoSuchElementException.class);
-		
-		WebElement welement = fwait.until(new Function<WebDriver,WebElement>(){
+
+		Wait<WebDriver> fwait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(timeOut))
+				.pollingEvery(Duration.ofSeconds(pollingEvery)).ignoring(NoSuchElementException.class);
+
+		WebElement welement = fwait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(locator);
 			}
 		});
+	}
+
+	public void takeScreenShot(WebDriver webdriver, String path, String description) throws Exception {
+
+		// Convert web driver object to TakeScreenshot
+
+		TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
+
+		// Call getScreenshotAs method to create image file
+
+		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+
+		// Move image file to new destination
+
+		File DestFile = new File(path + " " + description);
+
+		// Copy file at destination
+
+		FileUtils.copyFile(SrcFile, DestFile);
+
 	}
 
 }

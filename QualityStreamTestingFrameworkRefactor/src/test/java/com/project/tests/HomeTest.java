@@ -49,7 +49,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void testHomepage() throws InterruptedException {
+	public void testHomepage() throws Exception{
 
 		utilities.scroll("0","800");
 		utilities.mouseOver(overLocator, addToCartLocator);
@@ -57,6 +57,7 @@ public class HomeTest {
 		Thread.sleep(13000);
 		assertTrue(driver.findElement(confirmAddToCart).isDisplayed(),"no se muestra elemento ConfirmAddToCart");
 		Reporter.log("Se agregó correctamente el poducto a la carretilla");
+		utilities.takeScreenShot(driver,"./src/test/resources/ScreenShots/","test1.png");
 	}
 
 	@AfterClass
