@@ -5,23 +5,23 @@
       <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-07-21T17:58:11 CST" name="SuiteHome" finished-at="2022-07-21T17:58:35 CST" duration-ms="24608">
+  <suite started-at="2022-07-26T15:00:17 CST" name="SuiteHome" finished-at="2022-07-26T15:00:58 CST" duration-ms="41194">
     <groups>
     </groups>
-    <test started-at="2022-07-21T17:58:11 CST" name="TestHome" finished-at="2022-07-21T17:58:35 CST" duration-ms="24608">
+    <test started-at="2022-07-26T15:00:17 CST" name="TestHome" finished-at="2022-07-26T15:00:58 CST" duration-ms="41194">
       <class name="com.project.tests.HomeTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T17:58:11 CST" name="beforeClass" finished-at="2022-07-21T17:58:22 CST" duration-ms="11027" status="PASS">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:17 CST" name="beforeClass" finished-at="2022-07-26T15:00:30 CST" duration-ms="13543" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="testHomepage()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T17:58:22 CST" name="testHomepage" finished-at="2022-07-21T17:58:35 CST" duration-ms="13534" status="PASS">
+        <test-method signature="testHomepage()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:30 CST" name="testHomepage" finished-at="2022-07-26T15:00:58 CST" duration-ms="27609" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
             </line>
           </reporter-output>
         </test-method> <!-- testHomepage -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-21T17:58:35 CST" name="afterClass" finished-at="2022-07-21T17:58:35 CST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:58 CST" name="afterClass" finished-at="2022-07-26T15:00:58 CST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

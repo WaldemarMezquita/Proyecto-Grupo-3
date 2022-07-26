@@ -1,7 +1,10 @@
 package com.project.utilities;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 
@@ -16,10 +19,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Utilities {
 	WebDriver driver;
@@ -143,6 +144,7 @@ public class Utilities {
 		});
 	}
 
+//Método para tomar captura de pantalla
 	public void takeScreenShot(WebDriver webdriver, String path, String description) throws Exception {
 
 		// Convert web driver object to TakeScreenshot
@@ -161,6 +163,13 @@ public class Utilities {
 
 		FileUtils.copyFile(SrcFile, DestFile);
 
+	}
+	
+	//Función para obetner fecha en formato String
+	public String getDate() {
+		DateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
+		Date date = new Date();
+		return dateformat.format(date);
 	}
 
 }
