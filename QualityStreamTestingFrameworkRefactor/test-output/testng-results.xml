@@ -2,30 +2,42 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
     <line>
-      <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
+      <![CDATA[09-08-22-se ingresó correo: ]]>
+    </line>
+    <line>
+      <![CDATA[09-08-22-Se hizo clic en botón Create an Account]]>
+    </line>
+    <line>
+      <![CDATA[09-08-22-Se muestra label personal information]]>
     </line>
   </reporter-output>
-  <suite started-at="2022-07-26T15:00:17 CST" name="SuiteHome" finished-at="2022-07-26T15:00:58 CST" duration-ms="41194">
+  <suite started-at="2022-08-09T19:12:30 CST" name="Suite" finished-at="2022-08-09T19:12:52 CST" duration-ms="22328">
     <groups>
     </groups>
-    <test started-at="2022-07-26T15:00:17 CST" name="TestHome" finished-at="2022-07-26T15:00:58 CST" duration-ms="41194">
-      <class name="com.project.tests.HomeTest">
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:17 CST" name="beforeClass" finished-at="2022-07-26T15:00:30 CST" duration-ms="13543" status="PASS">
+    <test started-at="2022-08-09T19:12:30 CST" name="SignIn Test" finished-at="2022-08-09T19:12:52 CST" duration-ms="22328">
+      <class name="com.project.tests.SignInTest">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.project.tests.SignInTest@55182842]" started-at="2022-08-09T19:12:30 CST" name="beforeClass" finished-at="2022-08-09T19:12:36 CST" duration-ms="6470" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="testHomepage()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:30 CST" name="testHomepage" finished-at="2022-07-26T15:00:58 CST" duration-ms="27609" status="PASS">
+        <test-method signature="SignIn()[pri:0, instance:com.project.tests.SignInTest@55182842]" started-at="2022-08-09T19:12:36 CST" name="SignIn" finished-at="2022-08-09T19:12:52 CST" duration-ms="15819" status="PASS">
           <reporter-output>
             <line>
-              <![CDATA[Se agregó correctamente el poducto a la carretilla]]>
+              <![CDATA[09-08-22-se ingresó correo: ]]>
+            </line>
+            <line>
+              <![CDATA[09-08-22-Se hizo clic en botón Create an Account]]>
+            </line>
+            <line>
+              <![CDATA[09-08-22-Se muestra label personal information]]>
             </line>
           </reporter-output>
-        </test-method> <!-- testHomepage -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.project.tests.HomeTest@74235045]" started-at="2022-07-26T15:00:58 CST" name="afterClass" finished-at="2022-07-26T15:00:58 CST" duration-ms="0" status="PASS">
+        </test-method> <!-- SignIn -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.project.tests.SignInTest@55182842]" started-at="2022-08-09T19:12:52 CST" name="afterClass" finished-at="2022-08-09T19:12:52 CST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.project.tests.HomeTest -->
-    </test> <!-- TestHome -->
-  </suite> <!-- SuiteHome -->
+      </class> <!-- com.project.tests.SignInTest -->
+    </test> <!-- SignIn Test -->
+  </suite> <!-- Suite -->
 </testng-results>

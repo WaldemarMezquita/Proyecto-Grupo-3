@@ -1,6 +1,9 @@
 package com.project.utilities;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -9,6 +12,10 @@ import java.util.List;
 import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -81,6 +88,10 @@ public class Utilities {
 	public String getText(By locator) {
 		return driver.findElement(locator).getText();
 	}
+	
+	public String getValue(By locator) {
+		return driver.findElement(locator).getAttribute("value");
+	}
 
 	public void Type(String inputText, By locator) {
 		driver.findElement(locator).sendKeys(inputText);
@@ -93,6 +104,14 @@ public class Utilities {
 	public Boolean isDisplayed(By locator) {
 		try {
 			return driver.findElement(locator).isDisplayed();
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+	}
+	
+	public Boolean isDisplayed(WebElement wElement) {
+		try {
+			return wElement.isDisplayed();
 		} catch (org.openqa.selenium.NoSuchElementException e) {
 			return false;
 		}
@@ -144,7 +163,7 @@ public class Utilities {
 		});
 	}
 
-//Método para tomar captura de pantalla
+	// Método para tomar captura de pantalla
 	public void takeScreenShot(WebDriver webdriver, String path, String description) throws Exception {
 
 		// Convert web driver object to TakeScreenshot
@@ -164,12 +183,113 @@ public class Utilities {
 		FileUtils.copyFile(SrcFile, DestFile);
 
 	}
-	
-	//Función para obetner fecha en formato String
+
+	// Función para obetner fecha en formato String
 	public String getDate() {
 		DateFormat dateformat = new SimpleDateFormat("dd-MM-yy");
 		Date date = new Date();
 		return dateformat.format(date);
+	}
+
+	// Método para leer excel
+	public void readExcel(String filePath, String sheetName) throws IOException {
+
+		File file = new File(filePath);
+
+		FileInputStream inputStream = new FileInputStream(file);
+
+		XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
+
+		XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
+
+		int rowcount = newSheet.getLastRowNum() - newSheet.getFirstRowNum();
+
+		for (int i = 0; i < rowcount; i++) {
+			XSSFRow row = newSheet.getRow(i);
+			for (int j = 0; j < row.getLastCellNum(); j++) {
+				System.out.println(row.getCell(j).getStringCellValue() + "||");
+			}
+
+		}
+	}
+
+	// Función para leer una celda
+	public String getCellValue(String filePath, String sheetName, int rowNumber, int cellNumber) throws IOException {
+
+		File file = new File(filePath);
+
+		FileInputStream inputStream = new FileInputStream(file);
+
+		XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
+
+		XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
+
+		XSSFRow row = newSheet.getRow(rowNumber);
+
+		XSSFCell cell = row.getCell(cellNumber);
+
+		return cell.getStringCellValue();
+	}
+
+	// Método para escribir en un excel
+	public void writeExcell(String filePath, String sheetName, String[] dataToWrite) throws IOException {
+
+		File file = new File(filePath);
+
+		FileInputStream inputStream = new FileInputStream(file);
+
+		XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
+
+		XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
+
+		int rowCount = newSheet.getLastRowNum() - newSheet.getFirstRowNum();
+
+		XSSFRow row = newSheet.getRow(0);
+
+		XSSFRow newRow = newSheet.createRow(rowCount + 1);
+
+		for (int i = 0; i < row.getLastCellNum(); i++) {
+
+			XSSFCell newCell = newRow.createCell(i);
+			newCell.setCellValue(dataToWrite[i]);
+		}
+
+		inputStream.close();
+
+		FileOutputStream outputStream = new FileOutputStream(file);
+		newWorkBook.write(outputStream);
+		outputStream.close();
+
+	}
+
+	// Método para escribir en una celda
+	public void writeCellValue(String filePath, String sheetName, int rowNumber, int cellNumber, String resultText)
+			throws IOException {
+
+		File file = new File(filePath);
+
+		FileInputStream inputStream = new FileInputStream(file);
+
+		XSSFWorkbook newWorkBook = new XSSFWorkbook(inputStream);
+
+		XSSFSheet newSheet = newWorkBook.getSheet(sheetName);
+
+		XSSFRow row = newSheet.getRow(rowNumber);
+
+		XSSFCell firstCell = row.getCell(cellNumber - 1);
+
+		System.out.println("first Cell Value is: " + firstCell.getStringCellValue());
+
+		XSSFCell nextCell = row.createCell(cellNumber);
+		nextCell.setCellValue(resultText);
+
+		System.out.println("next cell value: " + nextCell.getStringCellValue());
+
+		inputStream.close();
+
+		FileOutputStream outputStream = new FileOutputStream(file);
+		newWorkBook.write(outputStream);
+		outputStream.close();
 	}
 
 }
