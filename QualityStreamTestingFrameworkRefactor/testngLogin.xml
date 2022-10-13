@@ -4,6 +4,6 @@
   <test name="LoginTest">
     <classes>
       <class name="com.project.tests.LogInTest"/>
-    </classes>
-  </test> <!-- LoginTest -->
+    </classes> 
+    </test>
 </suite> <!-- SuiteLogin -->

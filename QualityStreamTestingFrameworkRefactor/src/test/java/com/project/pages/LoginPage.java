@@ -34,6 +34,10 @@ public class LoginPage extends Utilities{
 	By lblWelcome = By.cssSelector("p.info-account");
 	By lblAccount = By.xpath("//a[@title='View my customer account']");
 	
+	//LogOut locators
+	By btnLogOutLocator = By.xpath("//a[@title='Log me out']");
+	//By btnSignInLogOutLocator = By.cssSelector("a.login");
+	
 	public void ClickSignInHome() {
 		click(logInLblLocator);
 		assertTrue(isDisplayed(LblAuthLocator),getDate() + "-" + "No se muestra label Authentication");
@@ -72,6 +76,14 @@ public class LoginPage extends Utilities{
 			Reporter.log( getDate() + "-" + "Se muestra la información de la cuenta del usuario");
 		}
 		
+	}
+	
+	public void LogOut() {
+		assertTrue(isDisplayed(btnLogOutLocator),getDate() + "-No se muestra botón LogOut");
+		click(btnLogOutLocator);
+		Reporter.log(getDate() + "Se hizo clic en el botón LogOut");
+		//assertTrue(isDisplayed(btnSignInLocator),getDate() + "No se muestra botón Sign In");
+		Reporter.log("Se cerró sesión satisfactoriamente");
 	}
 	
 	

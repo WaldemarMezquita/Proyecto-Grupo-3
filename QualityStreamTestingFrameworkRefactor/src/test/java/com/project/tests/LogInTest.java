@@ -2,6 +2,7 @@ package com.project.tests;
 
 import org.testng.annotations.Test;
 
+import com.project.pages.LogOutPage;
 import com.project.pages.LoginPage;
 import com.project.utilities.Utilities;
 
@@ -16,6 +17,7 @@ public class LogInTest {
 	String url = "http://automationpractice.com/index.php";
 	String browserType = "chrome";
 	LoginPage login;
+	//LogOutPage logout;
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -29,10 +31,11 @@ public class LogInTest {
 	public void Login() throws InterruptedException {
 		
 		login.ClickSignInHome();
-		login.TypeEmail("rmezquita@gmail.com");
+		login.TypeEmail("12@test.com");
 		login.TypePassWord("123456");
 		login.ClickSignButton();
 		login.ValidateLogIn();
+		login.LogOut();
 	}
 
 	@AfterClass
